@@ -8,7 +8,8 @@
 mdp field overview [mode of operation=mgp+]
 
 
-======== in file gun_camera.mdp ==== total-size=0x00002CE0  11488  ========
+======== in file gun_camera.mdp ==== total-size=0x00002CE0  11488  bytes read========
+======== WARNING: undefined behavior may display, use with caution  ========
 
 
 gun_camera.mdp magic number check pass
@@ -64,85 +65,81 @@ my-parent-id=0xFFFFFFFF
 
 my-mesh-entry-id=0 strcode=0x007a07aa mesh-offset=0x00000100
 flag-attr=00001001
-num-face-index=10 numVertexBuffer=0x0000017C
-face-index-offset=00000150 skinOffset=00002BE0 vertex-buffer-offset=00000000
+associated-skin-info: bone-count=2 bone-id-vector=<0,1>
+num-face-info=10 numVertexDatum=0x0000017C (if using indeces)
+face-info=00000150 skinOffset=00002BE0
 max.x=188.000000 max.y=408.000000 max.z=1153.000000 max.w=0.000000
 min.x=-85.000000 min.y=-100.000000 min.z=-1.000000 min.w=0.000000
 pos.x=0.000000 pos.y=0.000000 pos.z=0.000000 pos.w=1.000000
 
     >face data 0x00000150
-    face-id=0:0 face-buffer=0x000001D0 face-count=0x00000088 end=0x000002E0
+    face-id=0:0 vertex-buffer-array=0x000001D0 triangle-count=0x00000088 end=0x00000B60
     material-offset=0x00002BF0
     material-strcode=0x00025658 r=0xFFFFFFFF g=0xFFFFFFFF b=0xFF000000 specularPower=0.000000
 
 
 
     >face data 0x0000015C
-    face-id=0:1 face-buffer=0x00000B60 face-count=0x00000004 end=0x00000B68
+    face-id=0:1 vertex-buffer-array=0x00000B60 triangle-count=0x00000004 end=0x00000BB0
     material-offset=0x00002C08
     material-strcode=0x00000000 r=0xFFFFFFFF g=0xFFFFFFFF b=0xFFFFFFFF specularPower=1.000000
 
 
 
     >face data 0x00000168
-    face-id=0:2 face-buffer=0x00000BB0 face-count=0x0000007B end=0x00000CA6
+    face-id=0:2 vertex-buffer-array=0x00000BB0 triangle-count=0x0000007B end=0x00001460
     material-offset=0x00002C20
     material-strcode=0x00E11003 r=0xFFFFFFFF g=0xFFFFFFFF b=0xFF000000 specularPower=0.000000
 
 
 
     >face data 0x00000174
-    face-id=0:3 face-buffer=0x00001460 face-count=0x00000004 end=0x00001468
+    face-id=0:3 vertex-buffer-array=0x00001460 triangle-count=0x00000004 end=0x000014B0
     material-offset=0x00002C38
     material-strcode=0x006202DF r=0xFFFFFFFF g=0xFFFFFFFF b=0xFF000000 specularPower=0.000000
 
 
 
     >face data 0x00000180
-    face-id=0:4 face-buffer=0x000014B0 face-count=0x0000001C end=0x000014E8
+    face-id=0:4 vertex-buffer-array=0x000014B0 triangle-count=0x0000001C end=0x000016B0
     material-offset=0x00002C50
     material-strcode=0x00586E53 r=0xFFFFFFFF g=0xFFFFFFFF b=0xFF000000 specularPower=0.000000
 
 
 
     >face data 0x0000018C
-    face-id=0:5 face-buffer=0x000016B0 face-count=0x00000046 end=0x0000173C
+    face-id=0:5 vertex-buffer-array=0x000016B0 triangle-count=0x00000046 end=0x00001BA0
     material-offset=0x00002C68
     material-strcode=0x002790A4 r=0xFFFFFFFF g=0xFFFFFFFF b=0xFF000000 specularPower=0.000000
 
 
 
     >face data 0x00000198
-    face-id=0:6 face-buffer=0x00001BA0 face-count=0x00000052 end=0x00001C44
+    face-id=0:6 vertex-buffer-array=0x00001BA0 triangle-count=0x00000052 end=0x00002170
     material-offset=0x00002C80
     material-strcode=0x003790A4 r=0xFFFFFFFF g=0xFFFFFFFF b=0xFF000000 specularPower=0.000000
 
 
 
     >face data 0x000001A4
-    face-id=0:7 face-buffer=0x00002170 face-count=0x0000001C end=0x000021A8
+    face-id=0:7 vertex-buffer-array=0x00002170 triangle-count=0x0000001C end=0x00002370
     material-offset=0x00002C98
     material-strcode=0x00B38C68 r=0xFFFFFFFF g=0xFFFFFFFF b=0xFF000000 specularPower=0.000000
 
 
 
     >face data 0x000001B0
-    face-id=0:8 face-buffer=0x00002370 face-count=0x00000008 end=0x00002380
+    face-id=0:8 vertex-buffer-array=0x00002370 triangle-count=0x00000008 end=0x00002400
     material-offset=0x00002CB0
     material-strcode=0x00B38C4E r=0xFFFFFFFF g=0xFFFFFFFF b=0xFF000000 specularPower=0.000000
 
 
 
     >face data 0x000001BC
-    face-id=0:9 face-buffer=0x00002400 face-count=0x00000070 end=0x000024E0
+    face-id=0:9 vertex-buffer-array=0x00002400 triangle-count=0x00000070 end=0x00002BE0
     material-offset=0x00002CC8
     material-strcode=0x0091CD1B r=0xFFFFFFFF g=0xFFFFFFFF b=0xFF000000 specularPower=0.000000
 
 
-    skin-data: 2 bone id fields. [0,1]
 
     >>warning: null vertex buffer object field specified in mesh header<<
-
-
-
-
