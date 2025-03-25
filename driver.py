@@ -46,7 +46,7 @@ def extract_flipped_triangle_strips(mdp_file_path, obj_file_path, face_buffers, 
                 norm_x, norm_y, norm_z = struct.unpack("<hhh", data[8:14])
 
                 # Convert short (int16) to float with a scale of 1/4096.0
-                scale = 1 / 4096.0
+                scale = 1 / 32768
                 vertices.append((vert_x * scale * 100 , vert_y * scale * 100, vert_z * scale * 100))
                 normals.append((norm_x * scale, norm_y * scale, norm_z * scale))
 
