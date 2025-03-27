@@ -1,4 +1,4 @@
-simple file convertion research of the mdp (model portable) file
+simple file convertion research of the mdp (model portable) file used by nearly all metal gear games on the psp
 
 
 ![model-viewer](https://github.com/user-attachments/assets/c135233f-7d55-46cf-875e-a3c64e192e77)
