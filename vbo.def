@@ -1,3 +1,5 @@
+//this file lists type definition for various vertex types used in the mdp format
+
 #pragma once
 #include <fstream>
 #include <filesystem>
