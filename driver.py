@@ -49,6 +49,7 @@ def extract_flipped_triangle_strips(mdp_file_path, obj_file_path, face_buffers, 
                 scale = 1 / 32768
 
                 ##TODO: research if normals need same coefficient 
+                ##3 points to a vertex, clockwise or anticlockwise direction for the culling
                 vertices.append((vert_x * scale * 100 , vert_y * scale * 100, vert_z * scale * 100))
                 normals.append((norm_x * scale, norm_y * scale, norm_z * scale))
 
