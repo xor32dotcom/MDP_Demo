@@ -1,47 +1,41 @@
-import struct
+import os
 
-# === Paths ===
+# === File paths ===
 original_iso_path = "mpo.iso"
 new_iso_path = "mpo-net-patch.iso"
-replacement_file_path = "_zar"
+zar_file_path = "_zar"
 
-# === Constants ===
-# Offset where the size pair (LE + BE) is located
-file_size_offset = 0x2A060A
+# === File location in ISO (known offset) ===
+zar_offset = 0x27FB0000
+sector_size = 0x800  # 2048 bytes
 
-# === Get new file size ===
-with open(replacement_file_path, "rb") as f:
-    new_size = len(f.read())
+with open(original_iso_path, "rb") as iso_in, \
+     open(new_iso_path, "wb") as iso_out, \
+     open(zar_file_path, "rb") as zar_file:
 
-# === Convert to little-endian and big-endian 4-byte formats ===
-size_le = struct.pack("<I", new_size)
-size_be = struct.pack(">I", new_size)
+    # Step 1: Copy everything up to _zar file location
+    iso_in.seek(0)
+    while iso_in.tell() < zar_offset:
+        chunk_size = min(1024 * 1024, zar_offset - iso_in.tell())
+        iso_out.write(iso_in.read(chunk_size))
 
-# === Copy original ISO and patch the size field ===
-with open(original_iso_path, "rb") as infile, open(new_iso_path, "wb") as outfile:
-    # Copy everything up to the patch point
-    chunk_size = 1024 * 1024
-    bytes_remaining = file_size_offset
-    while bytes_remaining > 0:
-        read_len = min(chunk_size, bytes_remaining)
-        data = infile.read(read_len)
-        if not data:
-            raise IOError("Reached EOF before patch offset")
-        outfile.write(data)
-        bytes_remaining -= len(data)
+    # Step 2: Write _zar content
+    zar_data = zar_file.read()
+    iso_out.write(zar_data)
 
-    # Write new size LE+BE
-    outfile.write(size_le)
-    outfile.write(size_be)
+    # Step 3: Pad to next 0x800 boundary
+    pad_len = (-len(zar_data)) % sector_size
+    if pad_len:
+        iso_out.write(b'\x00' * pad_len)
 
-    # Skip the original 8 bytes in the source ISO
-    infile.seek(8, 1)
+    # Step 4: Skip old _zar content + padding in original ISO
+    iso_in.seek(zar_offset + ((len(zar_data) + pad_len + (sector_size - 1)) // sector_size) * sector_size)
 
-    # Write the rest of the ISO
+    # Step 5: Write rest of ISO
     while True:
-        data = infile.read(chunk_size)
+        data = iso_in.read(1024 * 1024)
         if not data:
             break
-        outfile.write(data)
+        iso_out.write(data)
 
 print(f"✅ Patched ISO written to: {new_iso_path}")
