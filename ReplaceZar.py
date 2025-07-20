@@ -1,5 +1,7 @@
 import os
 
+#iso modding utility by mpoadmin2978
+
 # === CONFIG ===
 ORIGINAL_ISO = "mpo.iso"
 NEW_ISO = "mpo-net-patch.iso"
