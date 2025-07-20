@@ -1,5 +1,7 @@
 import os
 
+#credit mpoadmin2978
+
 # === File paths ===
 original_iso_path = "mpo.iso"
 new_iso_path = "mpo-net-patch.iso"
